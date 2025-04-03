@@ -1,19 +1,6 @@
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-
-// This would typically come from a CMS or database
-const experiments = [
-  {
-    id: 'experiment-1',
-    title: 'Experiment 1',
-    description: 'Description of the first experiment',
-  },
-  {
-    id: 'experiment-2',
-    title: 'Experiment 2',
-    description: 'Description of the second experiment',
-  },
-];
+import { experiments } from '@/data/experiments';
 
 export default function ExperimentsPage() {
   return (
@@ -29,16 +16,21 @@ export default function ExperimentsPage() {
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {experiments.map((experiment) => (
-            <Link
-              key={experiment.id}
-              href={`/experiments/${experiment.id}`}
-              className="block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
-            >
-              <h2 className="text-xl font-semibold mb-2">{experiment.title}</h2>
-              <p className="text-gray-600">{experiment.description}</p>
-            </Link>
-          ))}
+          {experiments
+            .filter(experiment => experiment.status === 'published')
+            .map((experiment) => (
+              <Link
+                key={experiment.id}
+                href={`/experiments/${experiment.id}`}
+                className="block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+              >
+                <h2 className="text-xl font-semibold mb-2">{experiment.title}</h2>
+                <p className="text-gray-600 mb-4">{experiment.description}</p>
+                <div className="text-sm text-gray-500">
+                  Created: {new Date(experiment.createdAt).toLocaleDateString()}
+                </div>
+              </Link>
+            ))}
         </div>
       </div>
     </div>
