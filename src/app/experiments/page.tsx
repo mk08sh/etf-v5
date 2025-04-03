@@ -1,6 +1,20 @@
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
+// This would typically come from a CMS or database
+const experiments = [
+  {
+    id: 'experiment-1',
+    title: 'Experiment 1',
+    description: 'Description of the first experiment',
+  },
+  {
+    id: 'experiment-2',
+    title: 'Experiment 2',
+    description: 'Description of the second experiment',
+  },
+];
+
 export default function ExperimentsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 p-8">
@@ -14,28 +28,17 @@ export default function ExperimentsPage() {
           Explore our tools and experiments designed to enhance neurodivergent strengths.
         </p>
         
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white p-6 rounded-xl shadow-md">
-            <h2 className="text-2xl font-semibold mb-3">Mind Mirror</h2>
-            <p className="text-gray-600 mb-4">
-              An interactive tool to help you visualize and track your cognitive states throughout the day.
-            </p>
-            <div className="h-48 bg-gray-100 rounded-lg mb-4"></div>
-            <Link href="/experiments/mind-mirror" className="text-blue-600 hover:text-blue-800">
-              Try Mind Mirror
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {experiments.map((experiment) => (
+            <Link
+              key={experiment.id}
+              href={`/experiments/${experiment.id}`}
+              className="block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+            >
+              <h2 className="text-xl font-semibold mb-2">{experiment.title}</h2>
+              <p className="text-gray-600">{experiment.description}</p>
             </Link>
-          </div>
-          
-          <div className="bg-white p-6 rounded-xl shadow-md">
-            <h2 className="text-2xl font-semibold mb-3">Focus Flow</h2>
-            <p className="text-gray-600 mb-4">
-              Tools to help structure time and manage attention across various tasks.
-            </p>
-            <div className="h-48 bg-gray-100 rounded-lg mb-4"></div>
-            <Link href="/experiments/focus-flow" className="text-blue-600 hover:text-blue-800">
-              Try Focus Flow
-            </Link>
-          </div>
+          ))}
         </div>
       </div>
     </div>
