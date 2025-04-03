@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Brain, Wrench, Users, Map, Activity } from 'lucide-react';
+import { ArrowRight, Brain, Wrench, Map, Activity } from 'lucide-react';
 
 const HomePage = () => {
   return (
@@ -122,24 +122,6 @@ const HomePage = () => {
             </p>
             <a href="/spaces" className="mt-4 inline-flex items-center text-purple-600 hover:text-purple-800 text-sm">
               See our spaces <ArrowRight className="ml-1 h-3 w-3" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Call to Action */}
-      <section className="max-w-6xl mx-auto py-16 px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="bg-blue-600 text-white rounded-2xl shadow-xl overflow-hidden">
-          <div className="p-8 md:p-12 text-center">
-            <h2 className="text-3xl font-bold mb-4">Join Our Community</h2>
-            <p className="text-xl mb-8 opacity-90">
-              Connect with fellow scout brains, share experiences, and help shape the future of neurodivergent-friendly tools.
-            </p>
-            <a 
-              href="/community" 
-              className="inline-block px-6 py-3 bg-white text-blue-600 rounded-lg shadow-md hover:bg-blue-50 transition"
-            >
-              Get Involved
             </a>
           </div>
         </div>

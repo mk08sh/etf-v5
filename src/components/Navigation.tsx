@@ -10,7 +10,6 @@ const navigation = [
   { name: 'Essays', href: '/essays' },
   { name: 'Experiments', href: '/experiments' },
   { name: 'Spaces', href: '/spaces' },
-  { name: 'Community', href: '/community' },
 ]
 
 export function Navigation() {
